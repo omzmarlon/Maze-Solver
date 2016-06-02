@@ -1,0 +1,153 @@
+Student Name #1: TODO:Muzhi Ou
+Student ugrad login #1: TODO:q4d0b
+
+Student Name #2: TODO:Yumeng Chen
+Student ugrad login #2: TODO:g0z9a
+
+Team name (for fun!): TODO:NULL
+
+Acknowledgment that you understand and have followed the course's
+collaboration policy
+(http://www.ugrad.cs.ubc.ca/~cs221/current/syllabus.shtml#conduct):
+
+TODO: [[Put your names here again as a signature]]
+Muzhi Ou
+Yumeng Chen
+TODO: submit using: make handin-proj2
+
+----------------------------------------------------------------------
+
+Approximate hours on project: TODO:5
+
+----------------------------------------------------------------------
+
+For teams, rough breakdown of work: TODO:
+First work through the entire project individually,
+then compare to choose the best
+
+----------------------------------------------------------------------
+
+Acknowledgment of assistance: TODO:None
+
+----------------------------------------------------------------------
+
+Questions:
+
+For the explanations, generally a sentence or two should be enough.
+Type your answers directly in this file.
+
+
+1.  Give tight big-theta bounds on the worst-case runtime of the
+add and find functions in LinkedListDict.
+
+TODO:
+add: Big theta(1)
+find: Big theta(n)
+
+2.  Run the 5x5 slider puzzle with HeapPriorityQueue and LinkedListDict.
+What runtime do you get?  This is roughly the performance you had
+for Project 1.
+
+TODO:
+11min42s
+
+3.  Run the 5x5 slider puzzle with HeapPriorityQueue and your working
+AVLDict, LinearHashDict, and DoubleHashDict classes.
+What are your run times?  How do they compare to Q2?
+
+TODO:
+AVLDict: 2.6s
+LinearHash:1.2s
+DoubleHash:1.4s
+All of these newly implemented data structures are much faster 
+than LinkedList, because all of their runtimes for find is
+smaller than big-theta(n)
+
+
+For the remaining questions, we'll keep using HeapPriorityQueue,
+but switch to the UNSOLVABLE 3x3 slider puzzle to have something
+a bit more challenging for your program.  When we ask you for
+the average depth or number of probes, treat the "More" row as
+being equal to 29.
+
+4.  What is your runtime using AVLDict?  Based on the statistics
+printed out, what is the average depth of the find calls?
+
+TODO:
+5.26s
+Total number of probes: 8020413
+Total number of finds: 483840
+Therefore: average probes is 16.58
+
+5.  What is your runtime using LinearHashDict?  Based on the statistics
+printed out, what is the average number of probes for the find calls?
+
+TODO:
+2.71s 
+!!!
+Total number of probes: 1271650
+Total number of finds: 483840 
+Therefore average probes: 2.63
+
+6.  Change your LinearHashDict to use the notprimes array instead of the
+primes array for the table size.  (See the example in the constructor,
+and be sure to make the change every where in your program that you set
+the tablesize.)  Now, what is your runtime using LinearHashDict?
+And what is the average number of probes for the find calls?
+(Be sure to change the code back to using primes before you handin
+your code!)
+
+TODO:
+3.48s
+
+Total number of probes: 5943231
+Total number of finds: 483840
+Therefore average probes: 12.28 
+
+
+7.  What is your runtime using DoubleHashDict?  Based on the statistics
+printed out, what is the average number of probes for the find calls?
+
+TODO:
+2.962s
+Total number of probes: 951040
+Total number of finds: 483840
+Therefore average probes: 1.97
+
+8.  Change your DoubleHashDict to use the notprimes array instead of the
+primes array for the table size.  What happens?  Why?
+
+TODO:
+It seems the program does not stop. Because it goes to infinite looping
+to find an empty slot. Since table size is non-prime, hashNumber%size 
+is much more likely to produce the same or close numbers 
+
+9.  Keeping your DoubleHashDict using notprimes, change to using hash3
+instead of hash2 for the probing.  What is your runtime using DoubleHashDict?
+What is the average number of probes for the find calls?
+(Be sure to change the code back to using primes before you handin
+your code!)
+
+TODO:
+3.19s
+Total number of probes: 2229228 / 483840 = 4.61
+
+10(Bonus).  For a very small bonus (but a lot of fun), try to explain
+precisely why the chosen hash function (hash1 in the DoubleHashDict)
+interacts so poorly with the notprimes table sizes.
+
+OPTIONAL TODO:
+If table sizes are non-prime numbers, than when we do hash(key) % size 
+to get a slot in the table we are much more likely to get the same number over time.
+For example 220%100 and 320%100 yield the same result. However if we take one of 
+the prime numbers provided, 220%97 != 320%97
+More importantly, if we switch to hash3, which rules out hash numbers that can 
+be divided by 2,3,5. AND the non-prime numbers provided are divisible by 2,3,5.
+Hence by ruling out hash numbers divisible by 2,3,5 greatly decreases the chance of
+hash%size producing the same number
+
+
+----------------------------------------------------------------------
+
+We will be checking your implementations of AVLDict, LinearHashDict,
+and DoubleHashDict.
